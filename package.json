@@ -1,0 +1,19 @@
+{
+  "name": "NODEWEBTEST",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "supervisor app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.1",
+    "express": "~4.13.1",
+    "lodash": "^4.11.1",
+    "moment": "^2.13.0",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "supervisor": "^0.10.0",
+    "underscore": "^1.8.3"
+  }
+}

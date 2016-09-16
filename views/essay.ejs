@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="/css/index.css">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="applicable-device" content="mobile">
+        <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+        <title>
+            ゜ESSAY
+        </title>
+    </head>
+    <body class="home_body">
+    <div class="navigator">
+      <div class="home-logo">
+        <a href="/">HEAN</a>
+      </div>
+      <ul class="navigator-ul">
+        <li><a class="home-a " href="/" > ゜HOME</a></li>
+        <li><a class="photo-a" href="/photo">゜PHOTO</a></li>
+        <li><a class="essay-a" style="color: #aaa !important;">゜ESSAY</a></li>
+        <li><a class="contact-a" href="contact">゜CONTACT</a></li>
+      </ul>
+    </div>
+    <div class="essay-content">
+      <ul>
+        <%essay.forEach(function(oneEssay, index){ %>
+          <li>
+            <h1><%=oneEssay.title%></h1>
+            <h3><%=oneEssay.author%></h3>
+            <p id=<%=index%>>
+            <%-oneEssay.content%>
+            </p>
+            <p id=<%= "all" + index %> style="display:none">
+              <%-oneEssay.content_all%>
+            </p>
+            <input class="more-button" id=<%= "button" + index %> type="button" onclick=showAll(<%=index%>) value="查看更多"/>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="footer">
+        <span>©Hean 版权所有 </span>
+    </div>
+    <script type="text/javascript">
+        function showAll(id){
+            var essay_all = document.getElementById("all" + id);
+            var essay = document.getElementById(id);
+            var more_button = document.getElementById("button" + id);
+            essay_all.style.display = "";
+            essay.style.display = "none";
+            more_button.style.display = "none";
+        }
+    </script>
+    </body>
+    <script type="text/javascript">
+    </script>
+</html>
