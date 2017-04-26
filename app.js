@@ -3,6 +3,7 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 const router = require('./routes').router;
 const app = express();
 const path = require('path');
@@ -25,6 +26,7 @@ app.all('*', (req, res, next)=> {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(express.static(__dirname + '/public'));
 app.use(logger('dev'));
 app.set('view engine','ejs');
@@ -38,5 +40,4 @@ app.use('/',router);
 app.listen(3000, ()=>{
   console.log('>>| App listen on 3000...');
 });
-
 exports.app = app;
